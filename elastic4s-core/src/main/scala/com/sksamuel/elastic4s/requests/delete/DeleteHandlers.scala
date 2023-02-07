@@ -75,7 +75,7 @@ trait DeleteHandlers {
     override def build(request: DeleteByIdRequest): ElasticRequest = {
 
       val endpoint =
-        s"/${URLEncoder.encode(request.index.index, "UTF-8")}/${URLEncoder.encode(request.id.toString, "UTF-8")}"
+        s"/${URLEncoder.encode(request.index.index, "UTF-8")}/_doc/${URLEncoder.encode(request.id.toString, "UTF-8")}"
 
       val params = scala.collection.mutable.Map.empty[String, String]
       request.parent.foreach(params.put("parent", _))
